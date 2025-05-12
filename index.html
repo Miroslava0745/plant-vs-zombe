@@ -27,100 +27,64 @@
 	<div class="box1">
 		
 		<h5 style="position: absolute; left: 600px; top: 50px" class="score"></h5>
+		<button class="btn2" style="position: absolute; left:800px; background-color: lightgreen; height: 60px; width: 120px; top: 50px;">поменять скины</button>
+		<button class="btn3" style="position: absolute; left:1000px; background-color: lightgreen; height: 60px; width: 120px; top: 50px;">поменять скины</button>
 
 		<!--ГОРОХИ-->
-	    <img class="shooter1 shooter" src="peashooter.png"  style="top: 250px;left: 600px; ">		
-		<img class="shooter2 shooter" src="peashooter.png"  style="top: 385px;left: 600px; ">	
-		<img class="shooter3 shooter" src="peashooter.png"  style="top: 520px;left: 600px; ">	
-		<img class="shooter4 shooter" src="peashooter.png"  style="top: 655px;left: 600px; ">
-		<img class="shooter5 shooter" src="peashooter.png"  style="top: 800px;left: 600px; ">
+	    <img class="shooter" src="peashooter.png"  style="top: 250px;left: 600px; ">		
+		<img class="shooter" src="peashooter.png"  style="top: 385px;left: 600px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 520px;left: 600px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 655px;left: 600px; ">
+		<img class="shooter" src="peashooter.png"  style="top: 800px;left: 600px; ">
 
 
 		<!--ЗОМБИ-->
-		<img class="zombies1 zombies" src="zombie1.png" style="top: 230px;left: 1500px;">
-		<img class="zombies2 zombies" src="zombie2.png" style="top: 365px;left: 1500px;">
-		<img class="zombies3 zombies" src="zombie2.png" style="top: 500px;left: 1500px;">
-		<img class="zombies4 zombies" src="zombie4.png" style="top: 635px;left: 1500px;">
-		<img class="zombies5 zombies" src="zombie4.png" style="top: 780px;left: 1500px;">
+		<img class="zombies" src="zombie1.png" style="top: 230px;left: 1500px;">
+		<img class="zombies" src="zombie2.png" style="top: 365px;left: 1500px;">
+		<img class="zombies" src="zombie2.png" style="top: 500px;left: 1500px;">
+		<img class="zombies" src="zombie4.png" style="top: 635px;left: 1500px;">
+		<img class="zombies" src="zombie4.png" style="top: 780px;left: 1500px;">
 	</div>
 		<img src="1.webp" style="position: absolute; height: 700px; left: 600px; top: 150px; display: none;" class="box2">
-		<button class="btn1" style="position: absolute; left:890px; background-color: lightgreen; height: 40px; width: 120px; top: 850px; display: none;">restart</button>
+		<button class="btn" style="position: absolute; left:890px; background-color: lightgreen; height: 40px; width: 120px; top: 850px; display: none;">restart</button>
 <script>
 
-	let shoot1 = document.querySelector(".shooter1")
-	let shoot2 = document.querySelector(".shooter2")
-	let shoot3 = document.querySelector(".shooter3")
-	let shoot4 = document.querySelector(".shooter4")
-	let shoot5 = document.querySelector(".shooter5")
-	let zomb1 = document.querySelector(".zombies1")
-	let zomb2 = document.querySelector(".zombies2")
-	let zomb3 = document.querySelector(".zombies3")
-	let zomb4 = document.querySelector(".zombies4")
-	let zomb5 = document.querySelector(".zombies5")
+	let shoot = document.querySelectorAll(".shooter")
+	let zomb = document.querySelectorAll(".zombies")
 	let box = document.querySelector(".box2")
-	let btn = document.querySelector(".btn1")
+	let btn = document.querySelector(".btn")
+	let btn2 = document.querySelector(".btn2")
+	let btn3 = document.querySelector(".btn3")
 
-	let boxleft1 = 1500;
-	let boxleft2 = 1500;
-	let boxleft3 = 1500;
-	let boxleft4 = 1500;
-	let boxleft5 = 1500;
+	let arrey = [1500, 1500, 1500, 1500, 1500]
 
-		zomb1.onclick = function(){
-			boxleft1 = boxleft1 - 50;
-			zomb1.style.left = boxleft1 + "px";
-			if (boxleft1 == 650) {
-				shoot1.style.display = "none"
-				zomb1.style.left = "400px"
-				zomb1.style.top = "550px"
+	for (let i = 0; i < 5; i=i+1) {
+		zomb[i].onclick = function(){
+			arrey[i] = arrey[i] - 50;
+			zomb[i].style.left = arrey[i] + "px";
+			if (arrey[i] == 650) {
+				shoot[i].style.display = "none"
+				zomb[i].style.left = "400px"
+				zomb[i].style.top = "550px"
 				box.style.display = "block"
 				btn.style.display = "block"
 			}
 		}
-		zomb2.onclick = function(){
-			boxleft2 = boxleft2 - 50;
-			zomb2.style.left = boxleft2 + "px";
-			if (boxleft2 == 650) {
-				shoot2.style.display = "none"
-				zomb2.style.left = "400px"
-				zomb2.style.top = "550px"
-				box.style.display = "block"
-				btn.style.display = "block"
+	}
+
+	
+		btn2.onclick = function(){
+			for (let i = 0; i < 5; i=i+1) {
+			shoot[i].src = "1.png"
 			}
 		}
-		zomb3.onclick = function(){
-			boxleft3 = boxleft3 - 50;
-			zomb3.style.left = boxleft3 + "px";
-			if (boxleft3 == 650) {
-				shoot3.style.display = "none"
-				zomb3.style.left = "400px"
-				zomb3.style.top = "550px"
-				box.style.display = "block"
-				btn.style.display = "block"
+
+		btn3.onclick = function(){
+			for (let i = 0; i < 5; i=i+1) {
+			zomb[i].src = "2.png"
 			}
 		}
-		zomb4.onclick = function(){
-			boxleft4 = boxleft4 - 50;
-			zomb4.style.left = boxleft4 + "px";
-			if (boxleft4 == 650) {
-				shoot4.style.display = "none"
-				zomb4.style.left = "400px"
-				zomb4.style.top = "550px"
-				box.style.display = "block"
-				btn.style.display = "block"
-			}
-		}
-		zomb5.onclick = function(){
-			boxleft5 = boxleft5 - 50;
-			zomb5.style.left = boxleft5 + "px";
-			if (boxleft5 == 650) {
-				shoot5.style.display = "none"
-				zomb5.style.left = "400px"
-				zomb5.style.top = "550px"
-				box.style.display = "block"
-				btn.style.display = "block"
-			}
-		}
+		
 		btn.onclick = function(){
 			location.reload()
 		}
